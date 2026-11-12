@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./CSS/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <title>Dự án khởi nghiệp HCMUT</title>
+  </head>
+  <body>
+    <div id="overlay"></div>
+
+    <!-- HEADER -->
+    <header>
+      <div class="container">
+        <nav class="navbar">
+          <div class="navbar__logo">
+            <img src="./img/QLCN.png" alt="website logo" />
+            <div class="nhan-biet">
+              <h1 style="color: #07295c; font-size: 1.1rem; margin: 0">
+                HCMUT
+              </h1>
+              <h2 style="color: #22b1b6; font-size: 0.8rem; margin: 0">
+                Khoa Quản lý công nghiệp
+              </h2>
+            </div>
+          </div>
+          <ul class="navbar__links" id="navMenu">
+            <li>
+              <a href="#shop"><button class="navbar__btn">Sản phẩm</button></a>
+            </li>
+            <li>
+              <a href="#howItWorks"
+                ><button class="navbar__btn">Vận hành</button></a
+              >
+            </li>
+            <li>
+              <a href="#footer"><button class="navbar__btn">Liên Hệ</button></a>
+            </li>
+          </ul>
+
+          <div style="display: flex; gap: 10px; align-items: center">
+            <button class="merchant-header-btn" id="openMerchantBtn">
+              <i class="fa-solid fa-store"></i> Đối tác
+            </button>
+
+            <button class="cart-header-btn" id="openCartBtn">
+              <i class="fa-solid fa-cart-shopping"></i> Giỏ Hàng
+              <span class="cart-count" id="cartCount">0</span>
+            </button>
+
+            <div class="navbar__icons" id="menuToggle">
+              <div class="navbar__icon"></div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- BANNER -->
+    <section id="banner">
+      <div class="container banner__container">
+        <div class="banner__heading">
+          <h1>SƠ LƯỢC</h1>
+          <p>
+            Là nền tảng trung gian kết nối các tiệm bánh, quán cà phê, quán ăn
+            thanh lý thực phẩm còn chất lượng tốt vào cuối ngày với giá ưu đãi.
+            Đặt trước trên ứng dụng, đến quán nhận trực tiếp trong khung giờ!
+          </p>
+          <div class="banner__socials">
+            <a href="https://m.me/kaizkhoaN" target="_blank"
+              ><i class="fa-brands fa-facebook-messenger"></i
+            ></a>
+            <a href="https://www.facebook.com/kaizkhoaN" target="_blank"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=khoanguyentu90@gmail.com"
+              target="_blank"
+              ><i class="fa-solid fa-envelope"></i
+            ></a>
+          </div>
+        </div>
+        <div class="banner__img">
+          <img src="./img/MEO.png" alt="anh bia" />
+        </div>
+      </div>
+    </section>
+
+    <hr class="custom-dashed" />
+
+    <section id="shop">
+      <div class="container">
+        <div class="resq-search-bar">
+          <div class="search-input-wrap">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Tìm tên món hoặc cửa hàng gần bạn..."
+            />
+          </div>
+          <div class="location-badge">
+            <i class="fa-solid fa-location-dot"></i> TP. Hồ Chí Minh
+          </div>
+        </div>
+
+        <h2 class="section-title-fnb">DANH MỤC SẢN PHẨM</h2>
+
+        <div class="category-tabs">
+          <button class="tab-btn active" data-category="all">
+            <i class="fa-solid fa-utensils"></i> Tất Cả Món
+          </button>
+          <button class="tab-btn" data-category="bakery">
+            <i class="fa-solid fa-bread-slice"></i> Tiệm Bánh
+          </button>
+          <button class="tab-btn" data-category="cafe">
+            <i class="fa-solid fa-mug-hot"></i> Cà Phê & Đồ Uống
+          </button>
+          <button class="tab-btn" data-category="restaurant">
+            <i class="fa-solid fa-bowl-rice"></i> Cơm & Món nước
+          </button>
+        </div>
+
+        <div class="fnb-grid" id="productGrid"></div>
+        <div class="pagination" id="shopPagination"></div>
+      </div>
+    </section>
+    <section id="visionMission" class="corporate-about-section">
+      <div class="container">
+        <div class="corporate-section-header">
+          <span class="corp-subtitle"></span>
+          <h2>VỀ CHÚNG TÔI & ĐỊNH HƯỚNG</h2>
+          <div class="corp-divider"></div>
+        </div>
+
+        <div class="corp-grid">
+          <!-- Tầm nhìn -->
+          <div class="corp-card">
+            <div class="corp-icon">
+              <i class="fa-solid fa-compass"></i>
+            </div>
+            <h3>Tầm Nhìn Chiến Lược</h3>
+            <p>
+              Trở thành nền tảng công nghệ kết nối & giải cứu thực phẩm hàng đầu
+              cho hệ sinh thái F&B đô thị tại Việt Nam, hướng tới mục tiêu giảm
+              50% rác thải thực phẩm ở khâu bán lẻ và dịch vụ ăn uống vào năm
+              2030.
+            </p>
+          </div>
+          <div class="corp-card">
+            <div class="corp-icon">
+              <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <h3>Sứ Mệnh Doanh Nghiệp</h3>
+            <p>
+              Tối ưu hóa nguồn lực thực phẩm dư thừa bằng giải pháp công nghệ
+              minh bạch; tạo dòng tiền tái đầu tư cho chủ kinh doanh F&B và mang
+              đến các bữa ăn chất lượng, tiết kiệm cho cộng đồng.
+            </p>
+          </div>
+
+          <div class="corp-card core-values-card">
+            <div class="corp-icon">
+              <i class="fa-solid fa-gem"></i>
+            </div>
+            <h3>Giá Trị Cốt Lõi</h3>
+            <div class="core-badges-grid">
+              <span class="core-badge">Minh bạch</span>
+              <span class="core-badge">Tiết kiệm</span>
+              <span class="core-badge">An toàn</span>
+              <span class="core-badge">Bền vững</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="corp-slogan-clean">
+          <span class="slogan-label"></span>
+          <p class="slogan-text">“Tròn Vị Bữa Ăn – Trọn Vẹn Giá Trị”</p>
+        </div>
+      </div>
+    </section>
+    <section id="howItWorks" class="how-it-works-fnb">
+      <div class="container">
+        <h2 class="section-title-fnb">SƠ ĐỒ VẬN HÀNH</h2>
+        <div class="flow-steps-grid">
+          <div class="flow-step-card">
+            <div class="step-num">1</div>
+            <i class="fa-solid fa-store step-icon"></i>
+            <h3>Chủ Quán Đăng Món</h3>
+            <p>
+              Cuối ca, quán kiểm kho và đăng bán các sản phẩm dư còn chất lượng
+              với giá giảm kèm khung giờ nhận.
+            </p>
+          </div>
+          <div class="flow-step-card">
+            <div class="step-num">2</div>
+            <i class="fa-solid fa-mobile-screen-button step-icon"></i>
+            <h3>Đặt & Thanh Toán</h3>
+            <p>
+              Khách hàng lướt xem món gần mình, chọn số lượng, thanh toán trực
+              tuyến qua ứng dụng để nhận mã lấy hàng.
+            </p>
+          </div>
+          <div class="flow-step-card">
+            <div class="step-num">3</div>
+            <i class="fa-solid fa-bag-shopping step-icon"></i>
+            <h3>Đến Nhận Tại Cửa Hàng</h3>
+            <p>
+              Người mua đến quán trong khung giờ đăng ký, xuất trình mã xác nhận
+              để lấy đồ ăn, hoàn tất giao dịch và đánh giá.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="nat-gallery-ticker">
+      <div class="carousel">
+        <div class="carousel-track">
+          <img src="./img/Com.jpg" alt="EcoSave" />
+          <img src="./img/sukem.jpg" alt="EcoSave" />
+          <img src="./img/tea.jpg" alt="EcoSave" />
+          <img src="./img/miy.jpg" alt="EcoSave" />
+          <img src="./img/gagion.jpg" alt="EcoSave" />
+          <img src="./img/Cafe.jpg" alt="EcoSave" />
+          <img src="./img/cake.jpg" alt="EcoSave" />
+          <img src="./img/tuibanhngot.jpg" alt="EcoSave" />
+          <img src="./img/pho.jpg" alt="EcoSave" />
+          <img src="./img/Bmsw.jpg" alt="EcoSave" />
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="merchantModal">
+      <div class="merchant-modal-content">
+        <button class="modal-close" id="closeMerchantModal">&times;</button>
+        <div class="merchant-form-header">
+          <h3>
+            <i class="fa-solid fa-store"></i> KÊNH QUẢN LÝ DÀNH CHO DỰ ÁN F&B
+          </h3>
+          <p>
+            Dành cho các quán ăn, tiệm bánh đăng tải sản phẩm thanh lý cuối ngày
+          </p>
+        </div>
+
+        <div id="merchantAuthSection">
+          <div class="form-group">
+            <label>Tên Đơn Vị Kinh Doanh F&B (Tên Quán):</label>
+            <input
+              type="text"
+              id="merchantUser"
+              placeholder="VD: Paris Baguette - Chi nhánh Quận 1"
+            />
+          </div>
+          <div class="form-group">
+            <label>Mật Khẩu:</label>
+            <input type="password" id="merchantPass" placeholder="••••••••" />
+          </div>
+          <button class="merchant-submit-btn" id="merchantLoginBtn">
+            Đăng Nhập
+          </button>
+        </div>
+
+        <div id="merchantUploadSection" style="display: none">
+          <div class="partner-welcome-bar">
+            <span>Đối tác: <b id="partnerNameDisplay">Quán F&B</b></span>
+            <button id="merchantLogoutBtn">Đăng xuất</button>
+          </div>
+
+          <form id="uploadProductForm">
+            <div class="form-group">
+              <label>Tên Túi Món / Bánh Thanh Lý Cuối Ngày:</label>
+              <input
+                type="text"
+                id="prodTitle"
+                placeholder="VD: Túi Bánh Ngọt Bất Ngờ (Surprise Bag)"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Giá Gốc (đ):</label>
+                <input
+                  type="number"
+                  id="prodOriginalPrice"
+                  placeholder="100000"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>Giá Giảm Cuối Ngày (đ):</label>
+                <input
+                  type="number"
+                  id="prodPrice"
+                  placeholder="40000"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Loại Hình:</label>
+                <select id="prodCategory">
+                  <option value="bakery">Tiệm Bánh (Bakery)</option>
+                  <option value="cafe">Cà Phê & Đồ Uống</option>
+                  <option value="restaurant">Quán Ăn / Cơm</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Số Suất Trong Kho:</label>
+                <input type="number" id="prodStock" placeholder="5" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Khung Giờ Khách Đến Quán Nhận Món:</label>
+              <input
+                type="text"
+                id="prodPickupTime"
+                placeholder="VD: 20:30 - 21:30 (Hôm nay)"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Mô Tả Sản Phẩm & Chất Lượng:</label>
+              <textarea
+                id="prodDesc"
+                rows="3"
+                placeholder="Ghi rõ chi tiết món ăn..."
+                required
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label>Link Ảnh Món Ăn (URL):</label>
+              <input
+                type="text"
+                id="prodImage"
+                placeholder="./img/ETROLAI.jpg"
+                required
+              />
+            </div>
+            <button type="submit" class="merchant-submit-btn">
+              <i class="fa-solid fa-cloud-arrow-up"></i> Đưa Lên Ứng Dụng Ngay
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="productModal">
+      <div class="modal-content">
+        <button class="modal-close" id="closeModal">&times;</button>
+        <img src="" alt="Cover" class="modal-img" id="modalImg" />
+        <div class="modal-details">
+          <div>
+            <span id="modalCategory" class="modal-badge"></span>
+            <h3 id="modalTitle"></h3>
+            <div class="fnb-modal-price-wrap">
+              <span id="modalPrice" class="modal-price-txt"></span>
+              <span id="modalOriginalPrice" class="modal-orig-price"></span>
+            </div>
+            <p class="store-name-tag">
+              <i class="fa-solid fa-shop"></i> Quán:
+              <span id="storeNameVal"></span>
+            </p>
+            <p class="pickup-time-tag">
+              <i class="fa-solid fa-clock"></i> Khung giờ nhận:
+              <span id="pickupVal"></span>
+            </p>
+            <p id="modalDesc"></p>
+
+            <div class="reviews-section-box">
+              <h4>
+                <i class="fa-solid fa-star" style="color: #f59e0b"></i> Đánh Giá
+                Từ Khách Hàng
+              </h4>
+              <div id="modalReviewList"></div>
+
+              <div class="write-review-box-container">
+                <div class="star-rating-picker" id="starRatingPicker">
+                  <i class="fa-solid fa-star active" data-rating="1"></i>
+                  <i class="fa-solid fa-star active" data-rating="2"></i>
+                  <i class="fa-solid fa-star active" data-rating="3"></i>
+                  <i class="fa-solid fa-star active" data-rating="4"></i>
+                  <i class="fa-solid fa-star active" data-rating="5"></i>
+                  <span id="ratingText">(5/5 sao)</span>
+                </div>
+                <div class="write-review-box">
+                  <input
+                    type="text"
+                    id="reviewInput"
+                    placeholder="Viết cảm nhận của bạn (VD: Bánh rất ngon)..."
+                  />
+                  <button type="button" id="submitReviewBtn">Gửi</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="modal-qty-wrap">
+              <span>Số lượng mua:</span>
+              <input type="number" id="modalQty" value="1" min="1" max="10" />
+            </div>
+            <button class="buy-btn" id="modalAddToCartBtn">
+              Đặt Trước Món Này
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-header">
+        <h3><i class="fa-solid fa-cart-shopping"></i> Đơn Hàng Của Bạn</h3>
+        <button class="cart-close-btn" id="closeCartBtn">&times;</button>
+      </div>
+      <div class="cart-body" id="cartBody"></div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Tổng tiền:</span>
+          <span id="cartTotalAmount">0 đ</span>
+        </div>
+        <button class="checkout-btn" id="checkoutBtn">
+          Tiến Hành Thanh Toán QR
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="checkoutModal">
+      <div class="checkout-modal-content">
+        <button class="modal-close" id="closeCheckoutModal">&times;</button>
+        <h3>MÃ QR THANH TOÁN ĐẶT HÀNG</h3>
+        <div class="qr-box">
+          <img
+            src="./img/qr-code.png"
+            alt="Mã QR Chuyển Khoản"
+            onerror="
+              this.src = 'https://via.placeholder.com/200?text=QR+Thanh+Toan'
+            "
+          />
+          <div class="bank-info">
+            <p><b>Ngân hàng:</b> VIETCOMBANK</p>
+            <p><b>Số tài khoản:</b> 0974993104</p>
+            <p><b>Chủ tài khoản:</b> NGUYEN TU KHOA</p>
+            <p>
+              <b>Cú pháp chuyển khoản:</b>
+              <span
+                id="transferSyntax"
+                style="color: #e41695; font-weight: bold"
+              ></span>
+            </p>
+          </div>
+        </div>
+        <button class="confirm-paid-btn" id="confirmPaidBtn">
+          Xác Nhận Đã Chuyển Khoản
+        </button>
+      </div>
+    </div>
+
+    <footer id="footer">
+      <div class="container footer-container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-brand-flex">
+              <div class="footer-logo-box">
+                <img src="./img/BK.png" alt="Logo Bách Khoa" />
+              </div>
+              <div>
+                <span class="footer-sub-univ">ĐẠI HỌC QUỐC GIA TP.HCM</span>
+                <h3 class="footer-main-univ">TRƯỜNG ĐẠI HỌC BÁCH KHOA</h3>
+              </div>
+            </div>
+
+            <div class="footer-location-links">
+              <p>
+                <i class="fa-solid fa-location-dot"></i> <b>Cs1:</b> 268 Lý
+                Thường Kiệt, P.Diên Hồng, TP.HCM
+              </p>
+              <p>
+                <i class="fa-solid fa-location-dot"></i> <b>Cs2:</b> Khu phố Tân
+                Lập, P.Đông Hòa, TP.HCM
+              </p>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Thông Tin Người Phụ Trách</h4>
+            <ul class="footer-contact-list">
+              <li>
+                <i class="fa-solid fa-user-graduate"></i> Sinh viên: Nguyễn Tự
+                Khoa
+              </li>
+              <li>
+                <i class="fa-solid fa-id-card"></i>Khoa Quản Lý Công Nghiệp
+                (SIM)
+              </li>
+              <li>
+                <i class="fa-solid fa-envelope"></i> Email:
+                <a href="mailto:khoanguyentu90@gmail.com"
+                  >khoanguyentu90@gmail.com</a
+                >
+              </li>
+              <li>
+                <i class="fa-solid fa-phone"></i> Hotline / Zalo:
+                <a href="tel:0974993104">0974993104</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Kết Nối Cộng Đồng</h4>
+            <div class="footer-social-icons">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                style="background: #3b5998"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                style="background: #e1306c"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                style="background: #ff0000"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                style="background: #0077b5"
+                ><i class="fa-brands fa-linkedin-in"></i
+              ></a>
+              <a
+                href="https://tiktok.com"
+                target="_blank"
+                style="background: #000000; border: 1px solid #333"
+                ><i class="fa-brands fa-tiktok"></i
+              ></a>
+            </div>
+            <div class="footer-dept-tag">
+              <p>
+                <b>Khoa Quản Lý Công Nghiệp (SIM)</b><br />Trường Đại học Bách
+                Khoa - ĐHQG TP.HCM
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+          <p>Copyright © 2026 - HCMUT & SIM. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <hr style="border: none; border-top: 3px solid #68caf16e; margin: 0" />
+    <marquee
+      id="marq"
+      scrollamount="5"
+      direction="left"
+      loop="infinite"
+      scrolldelay="0"
+      behavior="scroll"
+      onmouseover="this.stop()"
+      onmouseout="this.start()"
+    >
+      <span style="color: #22b1b6; font-size: 16px; font-weight: 500">
+        <div style="display: flex; gap: 200px">
+          <span
+            >Trang web dành cho mục đích giáo dục và nghiên cứu môn học!</span
+          >
+          <span>Mọi thắc mắc xin liên hệ người phụ trách.</span>
+        </div>
+      </span>
+    </marquee>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
